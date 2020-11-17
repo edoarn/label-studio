@@ -54,6 +54,7 @@ from label_studio.storage import get_storage_form
 from label_studio.project import Project
 from label_studio.tasks import Tasks
 from label_studio.utils.auth import requires_auth
+from flask_reverse_proxy_fix.middleware import ReverseProxyPrefixFix
 
 logger = logging.getLogger(__name__)
 
@@ -69,11 +70,13 @@ def create_app():
     app.secret_key = 'A0Zrdqwf1AQWj12ajkhgFN]dddd/,?RfDWQQT'
     app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
     app.config['WTF_CSRF_ENABLED'] = False
+    app.config['REVERSE_PROXY_PATH'] = os.getenv("LS_PROXY_PATH", "/annotator")
     app.url_map.strict_slashes = False
     return app
 
 
 app = create_app()
+ReverseProxyPrefixFix(app)
 
 
 # input arguments
