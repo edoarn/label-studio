@@ -12,5 +12,5 @@ services:
       - USERNAME=links
       - PASSWORD=datascience
     ports:
-      - "8182:8080"
+      - "127.0.0.1:8182:8080"
     restart: unless-stopped
