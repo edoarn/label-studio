@@ -112,7 +112,7 @@
   }
 
   function copy_share_link(uuid) {
-    copyToClipboard(window.location.origin + '/api/project-switch?uuid=' + uuid);
+    copyToClipboard(window.location.origin + '/annotator/api/project-switch?uuid=' + uuid);
     $('body').toast({
       class: 'orange',
       title: 'Copied!',
