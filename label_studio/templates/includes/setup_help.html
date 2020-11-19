@@ -104,7 +104,7 @@
 
   function switch_project(uuid, desc) {
     var request = new XMLHttpRequest();
-    request.open("POST", '/annotator/api/project-switch?uuid=' + uuid, true);
+    request.open("POST", '/api/project-switch?uuid=' + uuid, true);
     request.onload = function () {
       window.location = "/setup"
     };
